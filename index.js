@@ -1,6 +1,7 @@
-import express from "express";
+const express = require("express");
 const app = express();
-import cors from "cors";
+const cors = require("cors");
+require("dotenv").config();
 
 app.use(cors());
 
@@ -18,6 +19,6 @@ app.get("/braking-bad-api", async (req, res) => {
   }
 });
 
-app.listen(1000, () => {
-  console.log("server is running");
+app.listen(process.env.APP_PORT, () => {
+  console.log("server is running ", process.env.APP_PORT);
 });
